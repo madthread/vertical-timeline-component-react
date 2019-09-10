@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const BodyComponent = styled.div`
-  color: #002a3a;
+  color: #bdbdbd;
   font-size: .9em;
   padding-bottom: 20px;
   padding-left: 15px;
@@ -14,10 +14,10 @@ const BodyComponent = styled.div`
   }
 
   &::before {
-    background-color: #ccc;
+    background-color: #BDBDBD;
     content: '';
     height: 100%;
-    left: -3px;
+    left: -9px;
     min-height: 95%;
     position: absolute;
     top: 10px;
@@ -36,11 +36,12 @@ const ContentBody = (props) => {
   const {
     title,
     children,
+    value, status
   } = props;
 
   return (
-    <BodyComponent className="body-component">
-      <BodyComponentTitle className="title-body-component">
+    <BodyComponent className={`body-component${(value < status?" active": "")}`}>
+      <BodyComponentTitle className={`title-body-component${(value === status?" active": "")}`}>
         { title }
       </BodyComponentTitle>
       { children }

@@ -11,31 +11,26 @@ const YearComponent = styled.div`
   width: 40px;
 
   &::after {
-    background: #ccc;
+    background: #BDBDBD;
     border-radius: 50%;
     content: '';
-    height: 6px;
     position: absolute;
-    right: -1px;
-    top: 5px;
+    right: 5px;
+    top: 6px;
+    height: 6px;
     width: 6px;
   }
 `;
 
-const YearComponentItem = styled.div`
-  margin-bottom: 8px;
-`;
-
 const ContentYear = (props) => {
   const {
-    year,
+    children,
+    value, status
   } = props;
 
   return (
-    <YearComponent className="year-component">
-      <YearComponentItem className="item-year-component">
-        { year }
-      </YearComponentItem>
+    <YearComponent className={`year-component${(value <= status?" active": "")}`}>
+    { value === status && children }
     </YearComponent>
   );
 };
